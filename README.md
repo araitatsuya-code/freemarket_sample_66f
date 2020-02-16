@@ -1,126 +1,34 @@
-テスト
+# freemarket_sample_66f
 
-## usersテーブル 
-|Column|Type|Options| 
-|------|----|-------| 
-|name|string|null: false| 
-|email|string|null: false| 
-|password|string|null: false| 
-�
-### Association 
-- has_many :cards dependent: :destroy
-- has_many :items dependent: :destroy
-- has_many :addresses dependent: :destroy
-- has_many :telephones dependent: :destroy
-�
-## itemsテーブル 
-|Column|Type|Options| 
-|------|----|-------| 
-|name|strings|null: false| 
-|price|int|null: false| 
-|user_id|integer|null: false, foreign_key: true| 
-|condition|string|null: false| 
-|size|string|null: false| 
-|way|string|null: false| 
-|date|string|null: false|
-|category_id|integer|null:false|
-|brand_id|integer|null:false|
-�
-### Association 
-- belongs_to :user 
-- belongs_to :category 
-- belongs_to :brand
-- has_many :images dependent: :destroy 
+プログラミングスクールTECH::EXPERTの最終課題で某フリーマーケットサービスのクローンサイトを作成しました。約1ヶ月間、４人チームでアジャイル開発を行いました。
+
+# リンク
+http://13.114.137.80/
+
+Basic認証をかけています。ご覧の際は以下のIDとPassを入力してください。
+
+* Basic認証
+  * ID: admin
+  * Pass: 2222
+
+* テスト用アカウント等
+  * 購入者用
+    * メールアドレス: tech-exp@com
+    * パスワード: 13131313
+  * 購入用カード情報（pay.jpテストカード）
+    * 番号：3530111333300000
+    * 期限：03/2025
+    * ユーザー名：任意
+    * セキュリティコード：325
+  * 出品者用
+    * メールアドレス名: techexp@com
+    * パスワード: 12121212
 
 
-## imagesテーブル
-|Column|Type|Options| 
-|------|----|-------| 
-|id|integer|null: false| 
-|url|text|null: false| 
-|item_id|int|null: false, foreign_key: true|
-�
-### Association
-- belongs_to :item  
+# ER図
+<img width="300" alt="freemarketsampleER" src="https://user-images.githubusercontent.com/58362112/74603647-1fdedf00-50f9-11ea-9af0-2ad36100c67a.png">
 
-
-## cardsテーブル 
-|Column|Type|Options| 
-|------|----|-------| 
-|user_id|integer|null: false, foreign_key: true| 
-|id|integer|null: false| 
-|card_id|integer|null: false,foreign_key: true|  
-
-### Association 
-- belongs_to: user
-
-
-## categoriesテーブル 
-|Column|Type|Options| 
-|------|----|-------| 
-|id|integer|null: false| 
-|name|string|null: false|
-|parent_id|integer|null: false|
-
-### Association 
-- has_many :items
-- has_many :categories_brands, dependent: :destroy
-- has_many :brands, through:categories_brands�  
-
-
-## brandsテーブル 
-|Column|Type|Options| 
-|------|----|-------| 
-|name|string|null: false| 
- foreign_key: true| 
-|id|integer|null: false, foreign_key: true| 
-|categry_id|integer|null: false, foreign_key: true| 
-
-### Association 
-- has_many :items
-- has_many :categories_brands, dependent: :destroy
-- has_many : categories, through:categories_brands 
-
-
-## categories_brandsテーブル 
-|Column|Type|Options| 
-|------|----|-------| 
-|id|integer|null: false, foreign_key: true| 
-|category_id|integer|null: false, foreign_key: true| 
-|item_id|integer|null: false, foreign_key: true|
-|name|string|null: false| 
-
-### Association 
-- belongs_to :category
-- belongs_to : brand� 
-
-
-## addressesテーブル
-|Column|Type|Options| 
-|------|----|-------|
-|user_id|integer|foreign_key:true|
-|post_number|integer|null:false|
-|prefecture|string|null:false|
-|city|string|null:false|
-|town|string|null:false|
-|building|string||
-
-### Association
-- belongs_to :user
-
-
-## telephonesテーブル
-|Column|Type|Options| 
-|------|----|-------|
-|user_id|integer|foreign_key:true|
-|phone_number|string|null:false|
-
-### Association
-- belongs_to :user
-
-
-
-
+# araitatsuya-codeの担当箇所
 
 
 
