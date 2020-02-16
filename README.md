@@ -35,20 +35,23 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 
 ## デプロイ
 
-AWS（EC2,S3）
-WEBServer：Nginx
-APPServer：Unicorn
-DataBase：MySQL
-Capistranoを導入した自動デプロイを行いました。
+AWS（EC2,S3）を使用しました。<br>
+WEBServer：Nginx<br>
+APPServer：Unicorn<br>
+DataBase：MySQL<br>
+Capistranoを導入した自動デプロイを行いました。<br>
 
 ## ユーザー登録ページ
 
-<img width="400" alt="サインイン画面" src="https://user-images.githubusercontent.com/58362112/74603919-12772400-50fc-11ea-93ca-260fbdc3a8a3.png">
+<img width="400" alt="Freemarketログイン画面" src="https://user-images.githubusercontent.com/58362112/74604069-b9a88b00-50fd-11ea-89d0-058a59c1b481.png">
 
 * フロントエンド
   * 新規登録（ログイン方法選択画面）、ログイン画面
 * バックエンド
   * RecaptchaAPIを導入した本人確認機能
+
+## 本人確認ページ
+  <img width="400" alt="Freemarket本人情報ページ" src="https://user-images.githubusercontent.com/58362112/74603994-d2647100-50fc-11ea-9630-9ed15bd80f92.png">
 
 ## クレジットカード登録関連（フロントエンド）
   * マイページ左下お支払い方法変更からご覧頂けます。
@@ -56,8 +59,16 @@ Capistranoを導入した自動デプロイを行いました。
     * クレジットカードを変更、追加する画面
     * 追加するとカード情報が表示される
 
-## 本人確認ページ
-  <img width="400" alt="Freemarket本人情報ページ" src="https://user-images.githubusercontent.com/58362112/74603994-d2647100-50fc-11ea-9630-9ed15bd80f92.png">
+## pay.jpAPIを使用した商品購入機能
+  * トップページのアイテムを選択後、購入して頂けるとご覧いただけます。
+    * 商品をクレジットカード決済を用いて購入する機能
+    * クレジットカードへのアクセスキーを保存するモデル、コントローラ、ルーティングの作成。
+    * payjpを導入し、カード登録時にpayjp側へカード情報と顧客情報を新規作成。
+    * 登録した情報にアクセスする為のキーをDBへ保存する機能の実装。
+    * DBのキーを利用してpayjpのクレジットカード情報を取得し、自分のカード情報(下4桁,期限など)を表示する機能の実装。
+    * 商品購入時にDBのキーを使ってpayjpの自分のカードを使用し、決済が完了する機能の実装。
+    * 決済が完了すると注文情報、売上情報のレコードを作成する処理の実装。
+    
 
 
 
